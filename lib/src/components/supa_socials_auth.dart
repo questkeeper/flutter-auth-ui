@@ -35,7 +35,7 @@ extension on OAuthProvider {
         OAuthProvider.apple => Colors.black,
         OAuthProvider.azure => Colors.blueAccent,
         OAuthProvider.bitbucket => Colors.blue,
-        OAuthProvider.discord => Colors.purple,
+        OAuthProvider.discord => const Color(0xFF5865F2),
         OAuthProvider.facebook => const Color(0xFF3b5998),
         OAuthProvider.figma => const Color.fromRGBO(241, 77, 27, 1),
         OAuthProvider.github => Colors.black,
@@ -395,13 +395,16 @@ class _SupaSocialsAuthState extends State<SupaSocialsAuth> {
                     child: iconWidget,
                   ),
                 )
-              : ElevatedButton.icon(
-                  icon: iconWidget,
-                  style: authButtonStyle,
-                  onPressed: onAuthButtonPressed,
-                  label: Text(
-                    localization.oAuthButtonLabels[socialProvider] ??
-                        socialProvider.labelText,
+              : SizedBox(
+                  height: 48,
+                  child: ElevatedButton.icon(
+                    icon: iconWidget,
+                    style: authButtonStyle,
+                    onPressed: onAuthButtonPressed,
+                    label: Text(
+                      localization.oAuthButtonLabels[socialProvider] ??
+                          socialProvider.labelText,
+                    ),
                   ),
                 ),
         );
