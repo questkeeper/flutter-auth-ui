@@ -275,6 +275,30 @@ class _SupaSocialsAuthState extends State<SupaSocialsAuth> {
         }
 
         switch (socialProvider) {
+          case OAuthProvider.discord:
+            iconWidget = Container(
+              margin: const EdgeInsets.only(right: 5),
+              child: SizedBox(
+                height: 48,
+                width: 48,
+                child: Icon(
+                  socialProvider.iconData,
+                  color: iconColor,
+                ),
+              ),
+            );
+          case OAuthProvider.apple:
+            iconWidget = Container(
+              padding: const EdgeInsets.fromLTRB(0, 8, 8, 8),
+              margin: const EdgeInsets.only(right: 8),
+              child: Image.asset(
+                'assets/logos/apple.png',
+                package: 'supabase_auth_ui',
+                width: 24,
+                height: 24,
+                color: Colors.white,
+              ),
+            );
           case OAuthProvider.notion:
             iconWidget = Image.asset(
               'assets/logos/notion.png',
@@ -380,6 +404,9 @@ class _SupaSocialsAuthState extends State<SupaSocialsAuth> {
           backgroundColor: WidgetStateProperty.all(backgroundColor),
           overlayColor: WidgetStateProperty.all(overlayColor),
           iconColor: WidgetStateProperty.all(iconColor),
+          padding: WidgetStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 16.0),
+          ),
         );
 
         return Padding(
